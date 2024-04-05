@@ -1,0 +1,15 @@
+version: "3"
+services:
+  docker-app-db:
+    image: mysql:8.0.13
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=testdb
+  docker-app:
+    build: .
+    ports:
+      - "8081:8080"
+    depends_on:
+      - docker-app-db

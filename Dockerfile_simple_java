@@ -1,0 +1,17 @@
+#consider this as base image
+FROM openjdk:17
+
+#create new directory for the application - these directory live inside containers not host machine
+#run command - applies to host alone
+RUN mkdir /app
+
+#copy files in host to image filesystem
+#copy <file loc in host> <loc in image filesys>
+COPY src/main/java/com/project/docker/ /app
+
+COPY target/dockerApp.jar /app/dockerApp.jar
+
+#set directory for future commands
+WORKDIR /app
+
+CMD ["java", "-jar", "dockerApp.jar"]

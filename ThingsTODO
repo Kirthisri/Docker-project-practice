@@ -1,0 +1,9 @@
+pull existing docker image from hub - run docker container
+---------------------------------------------------------------------------------------------------------------------
+
+1. docker pull mysql:8.0.13
+2. docker images
+3. docker run --name docker-app-db -p 3307:3306 -d -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=testdb mysql:8.0.13
+
+
+create image for application (other service) - run the do
